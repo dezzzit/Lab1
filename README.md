@@ -6,5 +6,5 @@
 |   FirstHashFunction | 15.20 s | 0.8334 s | 2.4179 s | 14.41 s |  1.00 |    1 |
 |                     |         |          |          |         |       |      |
 |  SecondHashFunction | 14.58 s | 0.3572 s | 0.9839 s | 14.56 s |  1.00 |    1 |
-|  ConstHashFunction  | Too much| processing | 0.9839 s | 14.56 s |  1.00 |    1 |
+|  ConstHashFunction  | Too much| processing |- | -|  - |  - |
 
