@@ -22,7 +22,12 @@ namespace Lab4_Transactions
 			_set = set;
 		}
 
-		public void Add(K key, V item)
+        public CuncurentDictionaryWrapper()
+        {
+            _set = new Dictionary<K, V>();
+        }
+
+        public void Add(K key, V item)
         {
             Dictionary<K, V> shadowSet = null;
             if (_transactionShadowSets.TryGetValue(Thread.CurrentThread.ManagedThreadId, out shadowSet))
