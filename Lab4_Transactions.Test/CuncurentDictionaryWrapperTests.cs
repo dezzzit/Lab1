@@ -3,6 +3,8 @@ using Lab4_Transactions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Lab4_UsingTransactions
 {
@@ -108,6 +110,32 @@ namespace Lab4_UsingTransactions
             Assert.AreEqual(_dict.Get("5"), 5);
         }
 
-        
+        [TestMethod]
+        public void OthersThreadsShouldntAccessToUncommitData()
+        {
+            // Arrange
+            var testTask1 = new Task(() =>
+            {
+                _dict.Add("6", 6);
+                _dict.BeginTransaction();
+                _dict.Remove("6");
+            });
+
+            var testTask2 = new Task<int>(() =>
+            {
+                Thread.Sleep(10);
+                return _dict.Get("6");
+            });
+
+            // Act
+
+            testTask2.Start();
+            testTask1.Start();
+
+            var res = testTask2.Result;
+            // Assert
+            Assert.AreEqual(res, 6);
+        }
+    
     }
 }
