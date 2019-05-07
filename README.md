@@ -9,10 +9,14 @@
 |  ConstHashFunction  | Too much| processing |- | -|  - |  - |
 
 
-#Lab 3 Results for Unions:
+# Lab 3 Results for Unions:
 
 |             Method |     Mean |     Error |    StdDev | Ratio | RatioSD | Rank |
 |------------------- |---------:|----------:|----------:|------:|--------:|-----:|
 |    UnionCollection | 2.299 ms | 0.1920 ms | 0.5661 ms |  1.00 |    0.00 |    1 |
 |                    |          |           |           |       |         |      |
 | UnionAllCollection | 406.20 us| 0.12 ms	  |   402 us  | 1.00  |   0.00  |    1 |
+
+# Lab 4 transactions:
+
+In the listing of code possible dead lock 
