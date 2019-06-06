@@ -1,29 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Runtime.Remoting.Messaging;
 using System.Threading;
-using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace Lab5_LockFreeLinkedList
 {
     public class CustomLinkedList
     {
         private DNode _head;
 
-        internal void AddFirst(int data)
+        public DNode Head
         {
-            DNode newNode = new DNode(data);
-            newNode.Next = _head;
-            newNode.Prev = null;
-            if (_head != null)
-            {
-                _head.Prev = newNode;
-            }
-            _head = newNode;
+            get { return _head; }
+            set { _head = value; }
         }
 
-        internal void AddFirstLockFree(int data)
+        public void AddFirst(int data)
+        {
+            DNode newNode = new DNode(data);
+            newNode.Next = Head;
+            newNode.Prev = null;
+            if (Head != null)
+            {
+                Head.Prev = newNode;
+            }
+            Head = newNode;
+        }
+
+        public void AddFirstLockFree(int data)
         {
             DNode newNode;
             DNode chkNode;
@@ -31,12 +33,12 @@ namespace ConsoleApp1
             {
                 newNode = new DNode(data)
                 {
-                    Next = _head,
+                    Next = Head,
                     Prev = null
                 };
-                if (_head != null)
+                if (Head != null)
                 {
-                    _head.Prev = newNode;
+                    Head.Prev = newNode;
                 }
 
                 chkNode = newNode;
@@ -49,10 +51,10 @@ namespace ConsoleApp1
         public void AddLast(int data)
         {
             DNode newNode = new DNode(data);
-            if (_head == null)
+            if (Head == null)
             {
                 newNode.Prev = null;
-                _head = newNode;
+                Head = newNode;
                 return;
             }
             DNode lastNode = GetLastNode();
@@ -62,13 +64,17 @@ namespace ConsoleApp1
 
         public DNode GetLastNode()
         {
-            DNode temp = _head;
+            DNode temp = Head;
             while (temp.Next != null)
             {
                 temp = temp.Next;
             }
             return temp;
         }
+
+        public DNode Tail => GetLastNode();
+
+
 
     }
 }
