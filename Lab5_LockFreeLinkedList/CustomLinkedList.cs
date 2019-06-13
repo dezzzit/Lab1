@@ -5,7 +5,7 @@ namespace Lab5_LockFreeLinkedList
 {
     public class CustomLinkedList
     {
-        private DNode _head;
+        private volatile DNode _head;
 
         public DNode Head
         {
@@ -27,24 +27,15 @@ namespace Lab5_LockFreeLinkedList
 
         public void AddFirstLockFree(int data)
         {
-            DNode newNode;
             DNode chkNode;
+            var newNode = new DNode(data);
+           
             do
             {
-                newNode = new DNode(data)
-                {
-                    Next = Head,
-                    Prev = null
-                };
-                if (Head != null)
-                {
-                    Head.Prev = newNode;
-                }
-
-                chkNode = newNode;
-                Interlocked.Exchange(ref _head, newNode);
+                newNode.Next = _head;
+                chkNode = _head;
             }
-            while (newNode != Interlocked.CompareExchange(ref _head, chkNode, newNode));
+            while (chkNode != Interlocked.CompareExchange(ref _head, newNode, chkNode));
 
         }
 
