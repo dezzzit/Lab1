@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab4_Transactions.Test", "L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab5_LockFreeLinkedList", "Lab5_LockFreeLinkedList\Lab5_LockFreeLinkedList.csproj", "{A8763A00-4BDD-452C-B6B2-C24CC6797370}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab5_LinkedListTests", "Lab5_LinkedListTests\Lab5_LinkedListTests.csproj", "{A8C2DC11-5C5E-4725-B1E1-76BD0F4B0CBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab5_LinkedListTests", "Lab5_LinkedListTests\Lab5_LinkedListTests.csproj", "{A8C2DC11-5C5E-4725-B1E1-76BD0F4B0CBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LockFreeBuilder", "LockFreeBuilder\LockFreeBuilder.csproj", "{52722803-4A9D-40F1-9151-396426849992}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{A8C2DC11-5C5E-4725-B1E1-76BD0F4B0CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8C2DC11-5C5E-4725-B1E1-76BD0F4B0CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8C2DC11-5C5E-4725-B1E1-76BD0F4B0CBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52722803-4A9D-40F1-9151-396426849992}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52722803-4A9D-40F1-9151-396426849992}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52722803-4A9D-40F1-9151-396426849992}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52722803-4A9D-40F1-9151-396426849992}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
